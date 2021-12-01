@@ -4,15 +4,15 @@
     <table *ngIf="productos.length>0" mat-table [dataSource]="productos">
       <ng-container matColumnDef="nombre">
         <mat-header-cell *matHeaderCellDef>Producto</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.nombre}}</mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.title}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="descripcion">
         <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.descripcion}}</mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="precio">
         <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.precio | currency}}</mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.rental_rate | currency}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="quitar">
         <mat-header-cell *matHeaderCellDef>Quitar</mat-header-cell>

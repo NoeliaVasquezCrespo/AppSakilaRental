@@ -33,11 +33,6 @@ export class TarjetaProductoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public resolverRuta() {
-    const baseUrl = environment.baseUrl;
-    return `${baseUrl}/foto_producto/${this.producto.foto}`;
-  }
-
   public detalles() {
     this.router.navigate(["/producto/detalle", this.producto.id])
   }

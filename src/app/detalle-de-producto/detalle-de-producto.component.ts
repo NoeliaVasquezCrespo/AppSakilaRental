@@ -31,12 +31,10 @@ import {environment} from "../../environments/environment";
 export class DetalleDeProductoComponent implements OnInit {
   public producto = {
     id: 0,
-    fotos: [],
-    nombre: "",
-    descripcion: "",
-    precio: "",
+    title: "",
+    description: "",
+    rental_rate: "",
   };
-  public fotoSeleccionada: string;
   public indiceSeleccionado = 0;
   public yaExiste: boolean;
 
@@ -44,16 +42,7 @@ export class DetalleDeProductoComponent implements OnInit {
 
   }
 
-  public resolverFoto(foto) {
-    const baseUrl = environment.baseUrl;
-    return `${baseUrl}/foto_producto/${foto}`;
-  }
-
-  public seleccionarImagen(indice) {
-    this.indiceSeleccionado = indice;
-    this.fotoSeleccionada = this.producto.fotos[this.indiceSeleccionado].foto;
-  }
-
+  
   public async quitarDelCarrito() {
     const {id} = this.producto;
     const respuesta = await this.carritoService.quitarProducto(id);
@@ -77,10 +66,7 @@ export class DetalleDeProductoComponent implements OnInit {
 
   async ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get("id")
-    this.producto = await this.productosService.obtenerProductoConFotosPorId(id);
-    if (this.producto.fotos.length >= 0) {
-      this.seleccionarImagen(0);
-    }
+    this.producto = await this.productosService.obtenerProductoPorId(id); 
     this.refrescarEstado();
   }
 

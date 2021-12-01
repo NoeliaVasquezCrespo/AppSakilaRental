@@ -13,7 +13,7 @@
               matBadgePosition="below after">Carrito de compras</span>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item *ngFor="let p of productos;">{{p.nombre}}  {{p.precio | currency}}</button>
+        <button mat-menu-item *ngFor="let p of productos;">{{p.title}}  {{p.rental_rate | currency}}</button>
         <button mat-menu-item>
           <strong>Total: {{total() | currency}}</strong>
         </button>
@@ -21,10 +21,6 @@
           <mat-icon>shopping_cart</mat-icon>
           Terminar compra</a>
       </mat-menu>
-      <a style="margin-left: 10px" mat-raised-button color="primary"
-         href="https://parzibyte.me/blog/contrataciones-ayuda/" target="_blank">
-        Ayuda y soporte
-      </a>
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="contenido">
@@ -46,9 +42,7 @@
           Ver tienda
         </a>
         <mat-divider></mat-divider>
-        <a mat-list-item href="https://parzibyte.me/blog/" target="_blank">
-          Creado por Parzibyte
-        </a>
+        
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="padding-10">

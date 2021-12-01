@@ -32,14 +32,11 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ProductosComponent} from './productos/productos.component';
-import {ClientesComponent} from './clientes/clientes.component';
 import {VentasComponent} from './ventas/ventas.component';
 import {TiendaComponent} from './tienda/tienda.component';
-import {AgregarProductoComponent} from './agregar-producto/agregar-producto.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {FormsModule} from "@angular/forms";
-import {LoadingButtonComponent} from './loading-button/loading-button.component';
 import {TarjetaProductoComponent} from './tarjeta-producto/tarjeta-producto.component';
 import {MatCardMdImage, MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -50,16 +47,12 @@ import {MatMenuModule} from "@angular/material/menu";
 import { TerminarCompraComponent } from './terminar-compra/terminar-compra.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import { DetalleDeVentaComponent } from './detalle-de-venta/detalle-de-venta.component';
-
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
-    ClientesComponent,
     VentasComponent,
     TiendaComponent,
-    AgregarProductoComponent,
-    LoadingButtonComponent,
     TarjetaProductoComponent,
     DetalleDeProductoComponent,
     TerminarCompraComponent,

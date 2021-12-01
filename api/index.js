@@ -1,20 +1,3 @@
-/*
-
-    Programado por Luis Cabrera Benito
-  ____          _____               _ _           _
- |  _ \        |  __ \             (_) |         | |
- | |_) |_   _  | |__) |_ _ _ __ _____| |__  _   _| |_ ___
- |  _ <| | | | |  ___/ _` | '__|_  / | '_ \| | | | __/ _ \
- | |_) | |_| | | |  | (_| | |   / /| | |_) | |_| | ||  __/
- |____/ \__, | |_|   \__,_|_|  /___|_|_.__/ \__, |\__\___|
-         __/ |                               __/ |
-        |___/                               |___/
-
-
-    Blog:       https://parzibyte.me/blog
-    Ayuda:      https://parzibyte.me/blog/contrataciones-ayuda/
-    Contacto:   https://parzibyte.me/blog/contacto/
-*/
 // Cargar valores del entorno
 require("dotenv").config();
 const express = require("express"),
@@ -39,24 +22,17 @@ const existeProducto = (carrito, producto) => {
 
 
 const DOMINIO_PERMITIDO_CORS = "http://localhost:4200",
-  DIRECTORIO_FOTOS = path.join(__dirname, "fotos_productos"),
-  DIRECTORIO_DIST = path.join(__dirname, "dist"),
   PUERTO = 3000;
 
 app.use(express.json())
 app.use(session({
-  secret: process.env.SESSION_KEY,
+  secret: "abc",
   saveUninitialized: true,
   resave: true,
 }))
-// Fotos
-app.use("/foto_producto", express.static(DIRECTORIO_FOTOS));
-// Estático
-app.use("/", express.static(DIRECTORIO_DIST));
 
-if (!fs.existsSync(DIRECTORIO_FOTOS)) {
-  fs.mkdirSync(DIRECTORIO_FOTOS);
-}
+
+
 app.use((req, res, next) => {
   res.set("Access-Control-Allow-Credentials", "true");
   res.set("Access-Control-Allow-Origin", DOMINIO_PERMITIDO_CORS);
@@ -97,7 +73,7 @@ app.post("/compra", async (req, res) => {
   let total = 0;
 
   const carrito = req.session.carrito || [];
-  carrito.forEach(p => total += p.precio);
+  carrito.forEach(p => total += p.rental_rate);
   const idCliente = await clienteModel.insertar(nombre, direccion);
   const idVenta = await ventaModel.insertar(idCliente, total);
   // usamos for en lugar de foreach por el await
@@ -145,50 +121,12 @@ app.post("/carrito/agregar", async (req, res) => {
 });
 
 
-app.post('/fotos_producto', (req, res) => {
-  const form = formidable({
-    multiples: true,
-    uploadDir: DIRECTORIO_FOTOS,
-  });
-
-  form.parse(req, async (err, fields, files) => {
-    const idProducto = fields.idProducto;
-    for (let clave in files) {
-      const file = files[clave];
-      const nombreArchivo = file.name;
-      await productoModel.agregarFoto(idProducto, nombreArchivo)
-    }
-  });
-
-  form.on("fileBegin", (name, file) => {
-    const extension = path.extname(file.name);
-    const nuevoNombre = uuidv4().concat(extension);
-    file.path = path.join(DIRECTORIO_FOTOS, nuevoNombre);
-    file.name = nuevoNombre;
-  })
-
-  form.on("end", () => {
-    res.json({
-      respuesta: true,
-    })
-  })
-
-});
-
-app.post('/producto', async (req, res) => {
-  const producto = req.body;
-  const respuesta = await productoModel.insertar(producto.nombre, producto.descripcion, producto.precio);
-  res.json(respuesta);
-});
 
 app.get('/productos', async (req, res) => {
   const productos = await productoModel.obtener();
   res.json(productos);
 });
-app.get('/productos_con_fotos', async (req, res) => {
-  const productos = await productoModel.obtenerConFotos();
-  res.json(productos);
-});
+
 
 app.get('/producto', async (req, res) => {
   if (!req.query.id) {
@@ -196,7 +134,7 @@ app.get('/producto', async (req, res) => {
     return;
   }
   const producto = await productoModel.obtenerPorId(req.query.id);
-  producto.fotos = await productoModel.obtenerFotos(req.query.id);
+  
   res.json(producto);
 });
 

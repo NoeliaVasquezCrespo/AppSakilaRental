@@ -16,6 +16,6 @@
     Contacto:   https://parzibyte.me/blog/contacto/
 */
 export class Producto {
-  constructor(public nombre: string, public descripcion: string, public precio?: number, public id?: number) {
+  constructor(public title: string, public description: string, public rental_rate?: number, public film_id?: number) {
   }
 }

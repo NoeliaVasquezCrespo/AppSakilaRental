@@ -30,7 +30,7 @@ export class TiendaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.productos = await this.productosService.obtenerProductosConFotos();
+    this.productos = await this.productosService.obtenerProductos();
   }
 
 }

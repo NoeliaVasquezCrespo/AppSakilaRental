@@ -53,7 +53,7 @@ export class TerminarCompraComponent implements OnInit {
 
   public total() {
     let total = 0;
-    this.productos.forEach(p => total += p.precio);
+    this.productos.forEach(p => total += p.rental_rate);
     return total;
   }
 
