@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-tarjeta-producto',
@@ -17,7 +17,7 @@ export class TarjetaProductoComponent implements OnInit {
   }
 
   public detalles() {
-    this.router.navigate(["/producto/detalle", this.producto.id])
+    this.router.navigate(["/producto/detalle", this.producto.film_id])
   }
 
 }

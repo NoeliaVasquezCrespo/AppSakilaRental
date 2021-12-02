@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductosService} from "../productos.service";
+import {ProductosService} from "../../productos.service";
 import {ActivatedRoute} from "@angular/router";
-import {Producto} from "../producto";
-import {CarritoService} from "../carrito.service";
-import {DataSharingService} from "../data-sharing.service";
-import {environment} from "../../environments/environment";
+import {Producto} from "../../producto";
+import {CarritoService} from "../../carrito.service";
+import {DataSharingService} from "../../data-sharing.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-detalle-de-producto',
@@ -13,10 +13,16 @@ import {environment} from "../../environments/environment";
 })
 export class DetalleDeProductoComponent implements OnInit {
   public producto = {
-    id: 0,
+    film_id: 0,
     title: "",
     description: "",
+    release_year:"", 
+    rental_duration:"",
     rental_rate: "",
+    length:"",
+    replacement_cost:"",
+    rating:"",
+    special_features:"",
   };
   public indiceSeleccionado = 0;
   public yaExiste: boolean;
@@ -27,22 +33,22 @@ export class DetalleDeProductoComponent implements OnInit {
 
   
   public async quitarDelCarrito() {
-    const {id} = this.producto;
-    const respuesta = await this.carritoService.quitarProducto(id);
+    const {film_id} = this.producto;
+    const respuesta = await this.carritoService.quitarProducto(film_id);
     console.log({respuesta})
     this.refrescarEstado();
   }
 
   public async agregarAlCarrito() {
-    const {id} = this.producto;
-    const respuesta = await this.carritoService.agregarAlCarrito(id);
+    const {film_id} = this.producto;
+    const respuesta = await this.carritoService.agregarAlCarrito(film_id);
     console.log({respuesta})
     this.refrescarEstado();
   }
 
   async refrescarEstado() {
-    const id = this.producto.id;
-    this.yaExiste = await this.carritoService.existeEnCarrito(id);
+    const film_id = this.producto.film_id;
+    this.yaExiste = await this.carritoService.existeEnCarrito(film_id);
     // Comunicación entre componentes
     this.dataSharingService.changeMessage("car_updated");
   }

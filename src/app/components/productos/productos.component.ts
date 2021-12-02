@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {ProductosService} from "../productos.service";
+import {ProductosService} from "../../productos.service";
 
 @Component({
   selector: 'app-productos',
@@ -19,7 +19,7 @@ export class ProductosComponent implements OnInit {
     if (!confirm("¿Realmente lo quieres eliminar<?")) {
       return;
     }
-    await this.productosService.eliminarProducto(producto.id);
+    await this.productosService.eliminarProducto(producto.film_id);
     await this.obtenerProductos();
   }
 

@@ -5,7 +5,8 @@ module.exports = {
   
   obtener() {
     return new Promise((resolve, reject) => {
-      conexion.query(`select id, title, description, rental_rate from films`,
+      conexion.query(`select film_id, title, description, rental_rate from film ORDER BY RAND()
+      LIMIT 10`,
         (err, resultados) => {
           if (err) reject(err);
           else resolve(resultados);
@@ -15,7 +16,7 @@ module.exports = {
   
   obtenerPorId(id) {
     return new Promise((resolve, reject) => {
-      conexion.query(`select id, title,description, rental_rate from films where id = ?`,
+      conexion.query(`select * from film where film_id = ?`,
         [id],
         (err, resultados) => {
           if (err) reject(err);
@@ -27,8 +28,8 @@ module.exports = {
   eliminar(id) {
     return new Promise(async (resolve, reject) => {
      
-      conexion.query(`delete from films
-            where id = ?`,
+      conexion.query(`delete from film
+            where film_id = ?`,
         [id],
         (err) => {
           if (err) reject(err);

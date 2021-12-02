@@ -1,16 +1,20 @@
-<div class="contenedor-padre">
-  <mat-toolbar class="barra" color="warn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="app.component.css">
+</head>
+<nav class="navbar navbar-expand navbar-dark" id="menu" >
+  <img src="https://www.freeiconspng.com/uploads/popcorn-png-7.png" width="50" height="50"/>
+  <a class="navbar-brand" style="color: #ffffff;" href="/#/tienda">MOVIESTAR</a>
+  <div class="navbar-nav ml-auto">
     <mat-toolbar-row>
-      <button (click)="cajon.toggle()" mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>
-        Mi tienda&nbsp;|&nbsp;By parzibyte
-      </span>
-      <span class="example-fill-remaining-space"></span>
-      <button mat-raised-button [matMenuTriggerFor]="menu">
+      <button mat-button [matMenuTriggerFor]="menu" style="background-color: #203A43;">
         <span style="margin-right: 10px" [matBadge]="productos.length+''" matBadgeOverlap="false"
-              matBadgePosition="below after">Carrito de compras</span>
+              matBadgePosition="below after" matBadgeColor="accent" style="color:#ffffff">Carrito </span>      
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item *ngFor="let p of productos;">{{p.title}}  {{p.rental_rate | currency}}</button>
@@ -21,32 +25,29 @@
           <mat-icon>shopping_cart</mat-icon>
           Terminar compra</a>
       </mat-menu>
+      <img src="https://cdn-icons-png.flaticon.com/512/1656/1656507.png" width="30" height="30"/> 
     </mat-toolbar-row>
-  </mat-toolbar>
-  <mat-sidenav-container class="contenido">
-    <mat-sidenav style="min-width: 300px;" #cajon opened mode="side">
-      <mat-nav-list>
-        <p style="margin-left: 4px;">Administrador</p>
-        <a mat-list-item routerLink="/productos">
-          <mat-icon color="primary">list_alt</mat-icon>
-          Productos
-        </a>
-        <a mat-list-item routerLink="/ventas">
-          <mat-icon color="primary">local_shipping</mat-icon>
-          Ventas
-        </a>
-        <mat-divider></mat-divider>
-        <p style="margin-left: 4px;">Cliente</p>
-        <a mat-list-item routerLink="/tienda">
-          <mat-icon color="primary">store</mat-icon>
-          Ver tienda
-        </a>
-        <mat-divider></mat-divider>
-        
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content class="padding-10">
+  </div>
+  <div class="navbar-nav ml-auto">
+      <li class="nav-item" routerLink="read" routerLinkActive="active">
+          <a href="login" class="nav-link" style="color: #ffffff;" >Ingresar</a>
+      </li>
+      <li class="nav-item" routerLink="create" routerLinkActive="active">
+          <a href="register" class="nav-link" style="color: #ffffff;" >Crear cuenta</a>
+      </li>
+  </div>   
+</nav>
+
+
+    
+  
+
       <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+  
+
+      <li class="nav-item" routerLink="read" routerLinkActive="active">
+        <a href="cart" class="nav-link" style="color: #ffffff;" > Carrito (3)  
+             
+         </a>
+     </li>
+

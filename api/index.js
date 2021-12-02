@@ -14,10 +14,10 @@ const {v4: uuidv4} = require("uuid")
 
 
 const indiceDeProducto = (carrito, idProducto) => {
-  return carrito.findIndex(productoDentroDelCarrito => productoDentroDelCarrito.id === idProducto);
+  return carrito.findIndex(productoDentroDelCarrito => productoDentroDelCarrito.film_id === idProducto);
 }
 const existeProducto = (carrito, producto) => {
-  return indiceDeProducto(carrito, producto.id) !== -1;
+  return indiceDeProducto(carrito, producto.film_id) !== -1;
 }
 
 
@@ -42,11 +42,11 @@ app.use((req, res, next) => {
 });
 app.delete("/producto", async (req, res) => {
 
-  if (!req.query.id) {
+  if (!req.query.film_id) {
     res.end("Not found");
     return;
   }
-  const idProducto = req.query.id;
+  const idProducto = req.query.film_id;
   await productoModel.eliminar(idProducto);
   res.json(true);
 });
@@ -79,7 +79,7 @@ app.post("/compra", async (req, res) => {
   // usamos for en lugar de foreach por el await
   for (let m = 0; m < carrito.length; m++) {
     const productoActual = carrito[m];
-    await productoVendidoModel.insertar(idVenta, productoActual.id);
+    await productoVendidoModel.insertar(idVenta, productoActual.film_id);
   }
   // Limpiar carrito...
   req.session.carrito = [];

@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   public total() {
-    // Quién te conoce reduce
+  
     let total = 0;
     this.productos.forEach(p => total += p.rental_rate);
     return total;
