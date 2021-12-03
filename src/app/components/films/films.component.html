@@ -1,0 +1,25 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="films.component.css">
+  </head>
+  <mat-card>
+    <div >
+      <div class="contenedor-imagen">
+        <img src="https://picsum.photos/200/300" >
+      </div>
+      <div style="display: inline-block; vertical-align: top">
+        
+        <h2>{{producto.title}}</h2>
+        <h1>{{producto.description}}</h1>
+        <h1>{{producto.rental_rate | currency}}</h1>
+        <button (click)="detalles()" mat-stroked-button color="primary">Información de la película
+          <mat-icon>arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card>

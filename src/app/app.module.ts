@@ -14,30 +14,38 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {ProductosComponent} from './components/productos/productos.component';
-import {TiendaComponent} from './components/tienda/tienda.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {FormsModule} from "@angular/forms";
-import {TarjetaProductoComponent} from './components/tarjeta-producto/tarjeta-producto.component';
-import {MatCardMdImage, MatCardModule} from "@angular/material/card";
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
-import {DetalleDeProductoComponent} from './components/detalle-de-producto/detalle-de-producto.component';
 import {MatChipsModule} from "@angular/material/chips";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatMenuModule} from "@angular/material/menu";
-import {TerminarCompraComponent } from './components/terminar-compra/terminar-compra.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import { PaymentComponent } from './components/payment/payment.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AddressComponent } from './components/address/address.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MoviescartComponent } from './components/moviescart/moviescart.component';
+import { DetailsComponent } from './components/details/details.component';
+import { StoreComponent } from './components/store/store.component';
+import { FilmsComponent } from './components/films/films.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ProductosComponent,
-    TiendaComponent,
-    TarjetaProductoComponent,
-    DetalleDeProductoComponent,
-    TerminarCompraComponent,
-    PaymentComponent
+    PaymentComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    AddressComponent,
+    MoviescartComponent,
+    DetailsComponent,
+    StoreComponent,
+    FilmsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +71,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     MatBadgeModule,
     MatMenuModule,
     MatStepperModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

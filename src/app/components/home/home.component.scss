@@ -1,0 +1,181 @@
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+@mixin white-gradient {
+	background: linear-gradient(to right, transparent 0%,transparent 100%);
+}
+
+$animationSpeed: 40s;
+
+html{
+	overflow:hidden;
+
+}
+// Animation
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+
+// Styling
+.slider {
+	background: transparent;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 250px; //Tamaño 
+	left: -70px;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+	
+	&::before,
+	&::after {
+		@include white-gradient;
+		content: "";
+		height: 100px;
+		position: absolute;
+		width: 200px;
+		z-index: 2;
+	}
+	
+	&::after {
+		right: 0;
+		top: 0;
+		transform: rotateZ(180deg);
+	}
+
+	&::before {
+		left: 0;
+		top: 0;
+	}
+	
+	.slide-track {
+		animation: scroll $animationSpeed linear infinite;
+		display: flex;
+		width: calc(250px * 14);
+	}
+	
+	.slide {
+		height: 100px;
+		width: 250px;
+	}
+}
+
+
+$font-color:                 #66615b !default;
+$fill-font-color:            rgba(255, 255, 255, 0.8);
+$font-family-sans-serif:     'Montserrat', "Helvetica", Arial, sans-serif;
+
+$none:                       0   !default;
+$border-thin:                1px !default;
+$border-thick:               2px !default;
+
+$white-color:                #000000 !default;
+$white-bg:                   #000000 !default;
+   
+
+
+.page-header{
+    background-color: #B2AFAB;
+    background-position: center center;
+    min-height: 450px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    /* Center vertically */
+    align-items: center;
+    /*Center horizontaly */
+    justify-content: center;
+
+    /*Center horizontaly ie */
+    -ms-flex-pack: center;
+
+    .filter::after{
+        background-color: rgba(0, 0, 0, 0.5);
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+
+    
+    
+
+    &.section-dark{
+        .content-center,
+        .category-absolute{
+            z-index: 1;
+        }
+    }
+}
+
+.title-brand{
+    max-width: 730px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    color: #FFFFFF;
+    display: block;
+
+   
+}
+
+.presentation-title{
+    font-size: 6em;
+    font-weight: 400;
+    margin: 0;
+    color: #FFFFFF;
+    // background: #fbf8ec;
+    background: -moz-linear-gradient(to bottom, #FFFFFF 35%, #4e6773 100%);
+    background: -webkit-linear-gradient(to bottom, #FFFFFF 35%,#4e6773 100%);
+    background: -ms-linear-gradient(to bottom, #FFFFFF 35%,#4e6773 100%);
+    background: -o-linear-gradient(to bottom, #FFFFFF 35%,#4e6773 100%);
+    background: linear-gradient(to bottom, #FFFFFF 35%,#4e6773 100%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.presentation-subtitle{
+    font-size: 1.7em;
+    color: #FFFFFF;
+}
+
+
+.angular-logo{
+    max-width: 90px;
+    margin: -50px auto 45px;
+
+    img{
+        width: 100%;
+    }
+}
+
+
+@keyframes cloudLoop{   0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+                        100%{-webkit-transform:translate3d(-50%,0,0);
+                        transform:translate3d(-50%,0,0)}
+                    }
+.following{
+    img{
+        max-width: 70px;
+    }
+}
+
+
+@media (max-width: 500px){
+    .presentation-title{
+        font-size: 5em;
+    }
+}
+
+
+
+
+

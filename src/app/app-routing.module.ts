@@ -1,27 +1,30 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {ProductosComponent} from './components/productos/productos.component';
-import {TiendaComponent} from './components/tienda/tienda.component';
-import {DetalleDeProductoComponent} from "./components/detalle-de-producto/detalle-de-producto.component";
-import {TerminarCompraComponent} from "./components/terminar-compra/terminar-compra.component";
 import { PaymentComponent } from './components/payment/payment.component';
-
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AddressComponent } from './components/address/address.component';
+import { MoviescartComponent } from './components/moviescart/moviescart.component';
+import { DetailsComponent } from './components/details/details.component';
+import { StoreComponent } from './components/store/store.component';
 
 const routes: Routes = [
-  {path: 'productos', component: ProductosComponent},
-  {path: 'tienda', component: TiendaComponent},
-  {path: 'producto/detalle/:id', component: DetalleDeProductoComponent},
-  {path: 'terminar_compra', component: TerminarCompraComponent},
+
+  {path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: 'store/:id', component: StoreComponent},
   {path: 'payment',component:PaymentComponent},
-  {path: '', redirectTo: "/tienda", pathMatch: "full"},
-  {path: '**', redirectTo: "/tienda"},
+  {path:'home', component:HomeComponent},
+  {path:'login', component:LoginComponent},
+  {path:'register', component:RegisterComponent},
+  {path:'address', component:AddressComponent},
+  {path:'cart',component:MoviescartComponent},
+  {path: 'film/details/:id', component: DetailsComponent},
+ 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    useHash: true, // <- Indicar que se use el hash
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

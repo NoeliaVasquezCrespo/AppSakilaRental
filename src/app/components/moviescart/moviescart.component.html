@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>Carrito de películas</h1> 
+    </div> 
+    <div class="row justify-content-left">
+        <h1>Has agregado las siguientes películas a tu carrito</h1> 
+    </div>     
+  </div>
+  
+  
+      <table *ngIf="productos.length>0" mat-table [dataSource]="productos">
+        <ng-container matColumnDef="image">
+          <mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
+          <mat-cell *matCellDef="let element"> <img src="https://picsum.photos/80/100"></mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
+          <mat-cell *matCellDef="let element"> <h4>{{element.title}}</h4></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="descripcion">
+          <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="space">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element"> </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="quitar">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button (click)="quitar(element)" type="submit" class="btn btn-primary">Quitar película</button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+      </table>
+    
+      <!--Fecha-->
+  <div class="container">
+    <div class="text-left ">  
+    </div> 
+  </div>  
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+  <div class="container">                
+  <div class="contentbar"> 
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="cart-container">
+                    <div class="row">
+                        <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
+                            <form>
+                                <div class="form-group">
+                                    <label>Por favor, seleccione una fecha de los días permitidos que se muestran en el calendario</label>
+                                    <label for="start">Fecha de devolución: 
+                                        <input type="date" id="start" name="trip-start" min="now()" max="2021-12-11">
+                                        <img src="https://www.freeiconspng.com/thumbs/calendar-image-png/calendar-image-png-3.png" style="width: 50px; height: 50px;"/>
+                                    </label>
+                                </div>
+                            </form>   
+                        </div>
+                        <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+                            <div class="order-total table-responsive ">
+                                <table class="table table-borderless text-right">
+                                    <tbody>
+                                        <tr>
+                                            <td>TOTAL :</td>
+                                            <td><h4>{{total() | currency}}</h4></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DSCTO :</td>
+                                            <td><h4>{{descuento() | currency}} -> {{porcentaje()}}%</h4></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="f-w-7 font-18"><h4>Pago :</h4></td>
+                                            <td class="f-w-7 font-18"><h4>{{pago() | currency}}</h4></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-footer text-right">
+                        <button  [routerLink]="['/payment']" class="btn btn-success my-1" style="width:270px;">Pagar<i class="ri-arrow-right-line ml-2"></i></button>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+  </div>
+  
+  

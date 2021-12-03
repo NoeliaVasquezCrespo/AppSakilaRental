@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CarritoService} from "./carrito.service";
-import {DataSharingService} from "./data-sharing.service";
+import { CarritoService } from './service/carrito/carrito.service';
+import { DataSharingService } from './service/data-sharing/data-sharing.service';
 
 @Component({
   selector: 'app-root',

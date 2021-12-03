@@ -1,0 +1,119 @@
+<div class="wrapper">
+    
+    <div class="page-header section-dark" style="background-image: url('https://cutewallpaper.org/21/top-movies-wallpaper-1920x1080/Classic-Movies-Wallpapers-56+-images-.jpg')">
+        <div class="filter"></div>
+        <div class="content-center">
+            <div class="container">
+                <div class="title-brand">
+                    <div class="angular-logo">
+                        <img src="https://cdn4.iconfinder.com/data/icons/planner-color/64/popcorn-movie-time-512.png" alt="">
+                    </div>
+                    <h1 class="presentation-title">MOVIESTAR</h1>
+                </div>
+                <h2 class="presentation-subtitle text-center">La mejor página donde encontrará películas que pueda rentar</h2>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="container page-home absolute">
+    <div class="overlay">
+  
+    </div> 
+    <div class="row">
+        <div class=" col-lg-offset-2 col-lg-8">
+            <div class="page-title  home text-center">
+                
+                <p class="mt20" style="color: aliceblue;"> </p>
+  
+                <div class="slider">
+                    <div class="slide-track">
+                        <div class="slide">
+                            <img src="https://es.web.img2.acsta.net/pictures/17/11/08/14/53/3315450.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://es.web.img3.acsta.net/pictures/18/03/16/15/33/3988420.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://www.ecartelera.com/carteles/16400/16448/001_m.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://m.media-amazon.com/images/M/MV5BMjg0NjU1MjgyNF5BMl5BanBnXkFtZTgwNzc5NjYyNDM@._V1_.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://es.web.img3.acsta.net/pictures/19/11/13/18/45/0348016.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://www.guiadelocio.com/var/guiadelocio.com/storage/images/cine/archivo-peliculas/aladdin/36488136-23-esl-ES/aladdin.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://es.web.img2.acsta.net/pictures/17/09/14/10/49/2019727.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://es.web.img2.acsta.net/pictures/17/11/08/14/53/3315450.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://es.web.img3.acsta.net/pictures/18/03/16/15/33/3988420.jpg" height="250" width="150" alt="" />    
+                        </div>
+                        <div class="slide">
+                            <img src="https://www.ecartelera.com/carteles/16400/16448/001_m.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://m.media-amazon.com/images/M/MV5BMjg0NjU1MjgyNF5BMl5BanBnXkFtZTgwNzc5NjYyNDM@._V1_.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://es.web.img3.acsta.net/pictures/19/11/13/18/45/0348016.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://www.guiadelocio.com/var/guiadelocio.com/storage/images/cine/archivo-peliculas/aladdin/36488136-23-esl-ES/aladdin.jpg" height="250" width="150" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="https://es.web.img2.acsta.net/pictures/17/09/14/10/49/2019727.jpg" height="250" width="150" alt="" />
+                        </div>
+                    </div>
+                </div> 
+                
+  
+                <div class=" col-lg-offset-2 col-lg-8">
+                    <div class="page-title  home text-center">
+                        <p class="mt20" style="color: aliceblue;">Por favor seleccione el país en el que desea comprar </p>
+                    </div>  
+                </div> 
+            </div>  
+        </div>  
+  
+        <div class=" col-lg-offset-2 col-lg-8">
+        
+            <div class="hexagon-menu clear"  *ngFor = 'let task of readData '>
+                <div class="hexagon-item"  >
+                    <div class="hex-item" >
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <a  class="hex-content">
+                        <span class="hex-content-inner" [routerLink]="['/store',task.country_id]">
+                            <span>
+                                <img width="80" heigth="80" src= "https://cdn-icons-png.flaticon.com/512/2052/2052749.png"> 
+                            </span>
+                            <span class="title" >{{task.country}}</span>
+                        </span>
+                        <svg viewBox="0 0 173.20508075688772 200"  height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                    </a>
+                </div>
+                <div class="hexagon-item">  
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+  
+  
+  
+  

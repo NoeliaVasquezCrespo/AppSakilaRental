@@ -2,22 +2,22 @@ import {Component, OnInit} from '@angular/core';
 import { CarritoService } from 'src/app/service/carrito/carrito.service';
 import { DataSharingService } from 'src/app/service/data-sharing/data-sharing.service';
 
-
 @Component({
-  selector: 'app-payment',
-  templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css']
+  selector: 'app-moviescart',
+  templateUrl: './moviescart.component.html',
+  styleUrls: ['./moviescart.component.css']
 })
-export class PaymentComponent implements OnInit {
+export class MoviescartComponent implements OnInit {
+
   constructor(private carritoService: CarritoService, private dataSharingService: DataSharingService) {
   }
 
   public compraTerminada = false;
   public productos = [];
-  public columnas = ['image','nombre', 'descripcion'];
+  public columnas = ['image','nombre', 'descripcion', 'space', 'quitar'];
+
   public valortotal;
   public valordescuento;
-
 
   public total() {
     let total = 0;

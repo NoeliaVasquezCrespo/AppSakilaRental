@@ -9,7 +9,7 @@
 </head>
 <nav class="navbar navbar-expand navbar-dark" id="menu" >
   <img src="https://www.freeiconspng.com/uploads/popcorn-png-7.png" width="50" height="50"/>
-  <a class="navbar-brand" style="color: #ffffff;" href="/#/tienda">MOVIESTAR</a>
+  <a class="navbar-brand" style="color: #ffffff;" href="/home">MOVIESTAR</a>
   <div class="navbar-nav ml-auto">
     <mat-toolbar-row>
       <button mat-button [matMenuTriggerFor]="menu" style="background-color: #203A43;">
@@ -21,7 +21,7 @@
         <button mat-menu-item>
           <strong>Total: {{total() | currency}}</strong>
         </button>
-        <a *ngIf="productos.length > 0" mat-menu-item routerLink="/terminar_compra">
+        <a *ngIf="productos.length > 0" mat-menu-item routerLink="/cart">
           <mat-icon>shopping_cart</mat-icon>
           Terminar compra</a>
       </mat-menu>
@@ -30,24 +30,13 @@
   </div>
   <div class="navbar-nav ml-auto">
       <li class="nav-item" routerLink="read" routerLinkActive="active">
-          <a href="login" class="nav-link" style="color: #ffffff;" >Ingresar</a>
+          <a class="nav-link" style="color: #ffffff;" [routerLink]="['/login']">Ingresar</a>
       </li>
       <li class="nav-item" routerLink="create" routerLinkActive="active">
-          <a href="register" class="nav-link" style="color: #ffffff;" >Crear cuenta</a>
+          <a class="nav-link" style="color: #ffffff;" [routerLink]="['/register']">Crear cuenta</a>
       </li>
   </div>   
 </nav>
-
-
-    
-  
-
       <router-outlet></router-outlet>
   
-
-      <li class="nav-item" routerLink="read" routerLinkActive="active">
-        <a href="cart" class="nav-link" style="color: #ffffff;" > Carrito (3)  
-             
-         </a>
-     </li>
 
